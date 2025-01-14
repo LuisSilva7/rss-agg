@@ -1,3 +1,4 @@
 .vscode/
 rssagg
 .env
+rssagg_db.session.sql

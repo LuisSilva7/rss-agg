@@ -1,0 +1,22 @@
+services:
+  postgresql:
+    container_name: postgresql_rssagg
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rssagg_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - rssagg-net
+    restart: unless-stopped
+
+networks:
+  rssagg-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
